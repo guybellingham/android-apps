@@ -4,6 +4,7 @@
     <string name="btn_anagram_list">List Anagrams</string>
     <string name="lbl_anagram_word">Enter Your Word</string>
     <string name="hint_anagram_word">Parsimony</string>
+    <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_anagram">Anagrams</string>
 </resources>

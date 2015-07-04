@@ -1,7 +1,9 @@
 package com.bellingham.guy.anagramapp;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +27,7 @@ public class DisplayActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_display, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -35,17 +37,29 @@ public class DisplayActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_search:
+                openSearch();
+                return true;
+            case R.id.action_settings:
+                openSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
-
+    public void openSearch() {
+        System.out.println("DisplayActivity.openSearch MenuItem clicked!");
+        ActionBar actionBar = getActionBar();
+//        actionBar.hide();
+//        Drawable background = getResources().getDrawable(R.drawable.bg_orange,getTheme());
+//        actionBar.setBackgroundDrawable(background);
+    }
+    public void openSettings() {
+        System.out.println("DisplayActivity.openSettings MenuItem clicked!");
+    }
     /**
      * Called when the user clicks the List Anagrams button
-     * @param view
      */
     public void createAnagrams(View view) {
         EditText editText = (EditText) findViewById(anagraminput);
